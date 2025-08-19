@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# But do NOT ignore these:
+!.gitignore
+!README.md
+!/Source-Code/
+!/Source-Code/**
+
+# Ignore temp files in Source-Code folder
+Source-Code/**/*.log
+Source-Code/**/*.tmp
+
