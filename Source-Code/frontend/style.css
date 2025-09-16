@@ -410,62 +410,72 @@ footer {
 }
 
 
-/* About Page  */
+/* About Page Hero */
 .about-hero {
-  background: linear-gradient(135deg, rgba(245,37,9,0.9), rgba(255,140,0,0.9)), 
+  background: linear-gradient(135deg, rgba(245,37,9,0.9), rgba(255,140,0,0.9)),
               url('images/hero-image.jpg') center/cover no-repeat;
   color: white;
   padding: 80px 20px;
   border-radius: 10px;
   text-align: center;
-  margin-bottom: 40px;
+  margin: 40px auto 60px;
   font-weight: 700;
   font-size: 2.8rem;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  box-sizing: border-box;
 }
 
+/* Text inside hero */
 .about-hero p {
   max-width: 600px;
   margin: 0 auto;
   font-size: 1.2rem;
   font-weight: 400;
+  line-height: 1.5;
 }
 
+/* Content grid for about cards */
 .about-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   max-width: 900px;
   margin: 0 auto 60px;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
+/* Each info card */
 .about-card {
   background: #fff;
   border-radius: 15px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   padding: 30px 20px;
   text-align: center;
-  transition: transform 0.3s ease;
   cursor: default;
+  transition: transform 0.3s ease;
 }
 
+/* Hover effect for cards */
 .about-card:hover {
   transform: translateY(-5px);
 }
 
+/* Title in card */
 .about-card h3 {
   font-size: 1.8rem;
   color: rgb(245, 37, 9);
   margin-bottom: 15px;
+  font-weight: 700;
 }
 
+/* Text in card */
 .about-card p {
   font-size: 1rem;
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
 }
+
 
 
 /* Recipies page */
