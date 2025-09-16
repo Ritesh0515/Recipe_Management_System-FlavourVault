@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorVault</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">FlavorVault</h1>
+            <nav>
+                <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+                <ul class="nav-list">
+                    <li><a href="index.html" onclick="event.preventDefault(); location.href='index.html';">Home</a></li>
+                    <li><a href="about.html" onclick="event.preventDefault(); location.href='about.html';">About</a>
+                    </li>
+                    <li><a href="recipes.html"
+                            onclick="event.preventDefault(); location.href='recipes.html';">Recipes</a></li>
+                    <li class="signup-btn"><a href="signup.html"
+                            onclick="event.preventDefault(); location.href='signup.html';">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ............Hero Section............ -->
+    <section class="hero">
+        <div class="hero-section">
+            <h2>Welcome to FlavorVault</h2>
+            <p>
+            <p>Unlock a vault of irresistible recipes – discover, cook, and savor every bite.</p>
+            </p>
+
+            <form class="search-box" onsubmit="handleHomeSearch(event)">
+                <input type="text" id="home-search" placeholder="Search Recipes" />
+                <button type="submit">Search</button>
+            </form>
+
+
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterRecipes('all')">All</button>
+            <button class="filter-btn" onclick="filterRecipes('dessert')">Desserts</button>
+            <button class="filter-btn" onclick="filterRecipes('main')">Main Course</button>
+            <button class="filter-btn" onclick="filterRecipes('appetizer')">Appetizers</button>
+            <button class="filter-btn" onclick="filterRecipes('beverage')">Beverages</button>
+        </div>
+    </div>
+
+    <!-- ............Recipe Section............ -->
+    <section class="recipes">
+        <h1>Featured Recipes</h1>
+        <div class="recipe-section">
+            <div class="recipe-card" data-category="dessert">
+                <img src="/images/dish-1.jpg" alt="">
+                <h2>Strawberry Custard</h2>
+                <p>Creamy homemade custard layered with fresh strawberries. A simple yet delightful dessert perfect for
+                    family gatherings.</p>
+
+                <a href="#">View Recipe</a>
+            </div>
+            <div class="recipe-card" data-category="main">
+                <img src="/images/grilled-chicken.jpg" alt="">
+                <h2>Grilled Chicken</h2>
+                <p>Tender chicken marinated with aromatic spices and grilled to perfection. A fully and protein-rich
+                    main course.</p>
+                <a href="#">View Recipe</a>
+            </div>
+            <div class="recipe-card" data-category="appetizer">
+                <img src="/images/dish-4.jpg" alt="">
+                <h2>Fresh Salad</h2>
+                <p>Crisp mixed vegetables with a tangy dressing. Light, refreshing, and packed with nutrients - perfect
+                    to start any meal.</p>
+                <a href="#">View Recipe</a>
+            </div>
+            <div class="recipe-card" data-category="beverage">
+                <img src="/images/fresh-juice.jpg" alt="">
+                <h2>Fresh Juice</h2>
+                <p>Natural fruit juice made from seasonal fruits. Refreshing, vitamin-rich, and naturally sweet -
+                    perfect for hot days. No preservatives.</p>
+                <a href="#">View Recipe</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <p> &copy; 2025 FlavorVault </p>
+        </div>
+    </footer>
+</body>
+
+</html>

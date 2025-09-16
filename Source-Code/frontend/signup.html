@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlavorVault – Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">FlavorVault</h1>
+            <nav>
+                <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="index.html" onclick="event.preventDefault(); location.href='index.html';">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html" onclick="event.preventDefault(); location.href='about.html';">About</a>
+                    </li>
+                    <li>
+                        <a href="recipes.html"
+                            onclick="event.preventDefault(); location.href='recipes.html';">Recipes</a>
+                    </li>
+                    <li class="signup-btn active">
+                        <a href="signup.html" onclick="event.preventDefault(); location.href='signup.html';">Sign Up</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="auth-section">
+        <div class="auth-container">
+            <h2>Create Your FlavorVault Account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="Choose a username" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Create a password" />
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required
+                        placeholder="Re-enter your password" />
+                </div>
+
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+            <p class="auth-toggle">
+                Already have an account? <a href="login.html">Log In</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <p>&copy; 2025 FlavorVault</p>
+        </div>
+    </footer>
+</body>
+
+</html>

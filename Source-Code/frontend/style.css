@@ -1,0 +1,534 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   1. Global Reset & Base
+───────────────────────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2. Header & Navigation
+───────────────────────────────────────────────────────────────────────────── */
+header {
+  height: 60px;
+  width: 100%;
+  background: #222121;
+  color: #f8f8f8;
+  display: flex;
+  align-items: center;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile menu toggle */
+.menu-icon {
+  font-size: 24px;
+  padding: 20px;
+  cursor: pointer;
+  display: block;
+}
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+}
+
+/* Nav list */
+.nav-list {
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: #222121;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+}
+.nav-list.active {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .nav-list {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: none;
+    gap: 10px;
+  }
+}
+
+/* Nav links */
+nav ul li {
+  margin-right: 0; /* reset default */
+}
+nav ul li a {
+  display: inline-block;
+  padding: 10px 15px;
+  color: #f8f8f8;
+  text-decoration: none;
+  font-weight: 550;
+  border-radius: 5px;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+nav ul li a:hover {
+  color: rgb(245, 37, 9);
+}
+
+/* Sign-Up button in nav */
+nav ul li.signup-btn a {
+  background-color: rgb(245, 37, 9);
+  color: #fff;
+}
+nav ul li.signup-btn.active a,
+nav ul li.signup-btn a:hover {
+  background-color: #d32f2f;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3. Hero Section
+───────────────────────────────────────────────────────────────────────────── */
+.hero {
+  background: url(images/hero-image.jpg) center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 140px 0;
+  margin-bottom: 20px;
+}
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Search box */
+.search-box {
+  max-width: 550px;
+  margin: 15px auto;
+  display: flex;
+}
+.search-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgb(245, 37, 9);
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+  outline: none;
+}
+.search-box button {
+  padding: 10px 20px;
+  border: none;
+  background: rgb(245, 37, 9);
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Recipe Section: Consistent Grid & Card Layout
+───────────────────────────────────────────────────────────────────────────── */
+.recipe-section {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;   /* Center cards when fewer items */
+}
+
+.recipe-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;        /* Prevent over-stretching */
+  overflow: hidden;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-card h2 {
+  padding: 20px;
+  margin: 0;
+}
+
+.recipe-card p {
+  padding: 0 20px 20px;
+  margin: 0;
+  flex-grow: 1;            /* Pushes button to bottom */
+}
+
+.recipe-card a {
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-top: 1px solid #ccc;
+  transition: background 0.3s ease;
+  margin-top: auto;        /* Ensures it’s always at bottom */
+}
+
+.recipe-card a:hover {
+  background: rgb(245, 37, 9);
+}
+
+/* Hidden cards no longer occupy space */
+.recipe-card.hidden {
+  display: none;
+}
+
+/* Filter buttons */
+.filter-section {
+  width: 90%;
+  margin: 30px auto 15px;
+  text-align: center;
+}
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid rgb(245, 37, 9);
+  background: #fff;
+  color: rgb(245, 37, 9);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: rgb(245, 37, 9);
+  color: #fff;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   5. Sign-Up Page
+───────────────────────────────────────────────────────────────────────────── */
+.auth-section {
+  min-height: calc(100vh - 60px - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  padding: 60px 0;
+}
+.auth-container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+.auth-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#signup-form .signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(245, 37, 9);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#signup-form .signup-btn:hover {
+  background-color: #d32f2f;
+}
+.auth-toggle {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.auth-toggle a {
+  color: rgb(245, 37, 9);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   6. Footer
+───────────────────────────────────────────────────────────────────────────── */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7. Responsive Typography Adjustments
+───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+  .hero p {
+    font-size: 15px;
+  }
+}
+
+/* Rename your existing Sign-Up block header: */
+/* Auth Pages (Sign-Up & Login) */
+.auth-section {
+  min-height: calc(100vh - 60px - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  padding: 60px 0;
+}
+.auth-container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+.auth-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+/* Form groups */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+/* Buttons */
+.auth-container .signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(245, 37, 9);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+.auth-container .signup-btn:hover {
+  background-color: #d32f2f;
+}
+/* Toggle link */
+.auth-toggle {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.auth-toggle a {
+  color: rgb(245, 37, 9);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   8. Recipes Page Title Styling
+───────────────────────────────────────────────────────────────────────────── */
+.recipes h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 40px 0 30px 0;
+  letter-spacing: 1px;
+  color: #222121;
+  position: relative;
+}
+
+.recipes h1::after {
+  content: "";
+  display: block;
+  margin: 16px auto 0 auto;
+  width: 60px;
+  height: 4px;
+  background: rgb(245, 37, 9);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+
+/* About Page  */
+.about-hero {
+  background: linear-gradient(135deg, rgba(245,37,9,0.9), rgba(255,140,0,0.9)), 
+              url('images/hero-image.jpg') center/cover no-repeat;
+  color: white;
+  padding: 80px 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2.8rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.about-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+.about-card h3 {
+  font-size: 1.8rem;
+  color: rgb(245, 37, 9);
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* Recipies page */
+.recipes-hero {
+  max-width: 900px;
+  margin: 20px auto 40px;
+  text-align: center;
+}
+
+.recipes-search {
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  margin: 15px auto 10px;
+}
+
+.recipes-search input {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.recipes-search input:focus {
+  border-color: rgb(245, 37, 9);
+}
+
+.recipes-search button {
+  padding: 12px 25px;
+  background-color: rgb(245, 37, 9);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.recipes-search button:hover {
+  background-color: #d32f2f;
+}
+
+.recipes-stats {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Space below recipe cards before footer */
+.recipe-section,
+#recipe-list,
+.recipes {
+  margin-bottom: 60px; /* You can adjust this value to your liking */
+}
+
+/* Ensure footer has proper spacing above */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  background: #333;
+  color: #fff;
+  text-align: center;
+}

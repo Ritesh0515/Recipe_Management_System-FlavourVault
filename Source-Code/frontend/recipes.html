@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlavorVault – Recipes</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">FlavorVault</h1>
+      <nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="active"><a href="recipes.html">Recipes</a></li>
+          <li class="signup-btn"><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="recipes">
+    <section class="recipes-hero">
+      <h1 class="section-heading">All Recipes</h1>
+      <div class="recipes-search">
+        <input type="text" id="recipe-search" placeholder="Search for recipes..." />
+        <button onclick="searchRecipes()">Search</button>
+      </div>
+      <div class="recipes-stats" id="recipe-count"></div>
+
+    </section>
+
+    <div class="recipe-section" id="recipe-list">
+      <div class="recipe-card" data-category="dessert">
+        <img src="images/dish-1.jpg" alt="Strawberry Custard" />
+        <h2>Strawberry Custard</h2>
+        <p>Creamy homemade custard layered with fresh strawberries. Perfect dessert.</p>
+        <a href="#">View Recipe</a>
+      </div>
+      <div class="recipe-card" data-category="main">
+        <img src="images/grilled-chicken.jpg" alt="Grilled Chicken" />
+        <h2>Grilled Chicken</h2>
+        <p>Tender chicken marinated with aromatic spices and grilled to perfection.</p>
+        <a href="#">View Recipe</a>
+      </div>
+      <div class="recipe-card" data-category="appetizer">
+        <img src="images/dish-4.jpg" alt="Fresh Salad" />
+        <h2>Fresh Salad</h2>
+        <p>Crisp mixed vegetables with a tangy dressing. Light, refreshing, and packed with nutrients.</p>
+        <a href="#">View Recipe</a>
+      </div>
+      <div class="recipe-card" data-category="beverage">
+        <img src="images/fresh-juice.jpg" alt="Fresh Juice" />
+        <h2>Fresh Juice</h2>
+        <p>Natural fruit juice made from seasonal fruits. Refreshing, vitamin-rich, and naturally sweet.</p>
+        <a href="#">View Recipe</a>
+      </div>
+
+      <div class="recipe-card" data-category="main">
+        <img src="images/butter-chicken.jpg" alt="Butter Chicken" />
+        <h2>Butter Chicken</h2>
+        <p>Rich and creamy tomato-based chicken curry with aromatic Indian spices, perfect with naan or rice.</p>
+        <a href="#">View Recipe</a>
+      </div>
+
+      <div class="recipe-card" data-category="dessert">
+        <img src="images/gulab-jamun.jpg" alt="Gulab Jamun" />
+        <h2>Gulab Jamun</h2>
+        <p>Soft, deep-fried milk dumplings soaked in rose-flavored sugar syrup. A beloved Indian dessert.</p>
+        <a href="#">View Recipe</a>
+      </div>
+
+
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <p>&copy; 2025 FlavorVault</p>
+    </div>
+  </footer>
+</body>
+
+</html>
